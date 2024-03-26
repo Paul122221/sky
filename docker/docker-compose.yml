@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+
+  task-service:
+    build:
+      dockerfile: ./docker/.docker/common-service/Dockerfile
+      context: ../
+      args:
+        PATH_TO_JAR: "target"
+    container_name: task-service
+    environment:
+      - SPRING_PROFILES_ACTIVE=deployment # for application-deployment.yml
+    ports:
+      - "8080:8080"
+    networks:
+      default:
+        ipv4_address: 192.168.11.57
+
+
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    networks:
+      default:
+        ipv4_address: 192.168.11.72
+
+
+
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.11.0/24
