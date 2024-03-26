@@ -1,0 +1,36 @@
+server:
+  port: 8080
+spring:
+  data:
+    mongodb:
+#      uri: mongodb://192.168.11.72:27017
+      uri: mongodb://192.168.11.72:27017/test
+
+  security:
+    user:
+      name: user12
+      # password - password
+      password: $2b$12$LKxEAS6pQTB3jXlSB5XHzOU9nKxvH0lwSY3hkjMHJoKPL1P7hb8cK
+      roles:
+        - USER
+
+jwt:
+  public:
+    key: app.pub
+  private:
+    key: app.key
+
+#testtt.q: classpath:test
+
+#jwt:
+#  public:
+#    key: classpath:app.pub
+#  private:
+#    key: classpath:app.key
+
+#jwt:
+#  private.key: classpath:app.key
+#  public.key: classpath:app.pub
+
+batch:
+  size: 20
