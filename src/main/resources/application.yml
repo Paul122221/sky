@@ -1,0 +1,20 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/test
+  security:
+    user:
+      name: user12
+      # password - password
+      password: $2b$12$LKxEAS6pQTB3jXlSB5XHzOU9nKxvH0lwSY3hkjMHJoKPL1P7hb8cK
+      roles:
+        - USER
+
+jwt:
+  public:
+    key: app.pub
+  private:
+    key: app.key
+
+batch:
+  size: 20
